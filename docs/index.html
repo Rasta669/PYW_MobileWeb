@@ -127,6 +127,7 @@
 </html>-->
 
 
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -152,8 +153,7 @@
             <div id="unity-build-title">Paint Your World</div>
         </div>
     </div>
-    <script>
-      var canvas = document.querySelector("#unity-canvas");
+    <script>var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -261,9 +261,6 @@
         }
 
         window.addEventListener("resize", forceResize);
-        window.addEventListener("orientationchange", forceResize);
-
-
-    </script>
+        window.addEventListener("orientationchange", forceResize);</script>
 </body>
 </html>

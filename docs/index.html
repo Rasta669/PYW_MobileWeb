@@ -127,7 +127,6 @@
 </html>-->
 
 
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -136,8 +135,33 @@
     <title>Unity Web Player | Paint Your World</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+    <style>
+        /* Rotate message overlay */
+        #rotate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            color: white;
+            font-size: 24px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 99999;
+            padding: 20px;
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- Rotate screen -->
+    <div id="rotate-overlay">Please rotate your device to landscape to play.</div>
+
     <div id="unity-container" class="unity-desktop">
         <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
@@ -153,14 +177,10 @@
             <div id="unity-build-title">Paint Your World</div>
         </div>
     </div>
-    <script>var canvas = document.querySelector("#unity-canvas");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+
       function unityShowBanner(msg, type) {
         var warningBanner = document.querySelector("#unity-warning");
         function updateBannerVisibility() {
@@ -194,43 +214,19 @@
         showBanner: unityShowBanner,
       };
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
-
+      /* Mobile modifications */
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-          //meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover';
-
         document.getElementsByTagName('head')[0].appendChild(meta);
+
         document.querySelector("#unity-container").className = "unity-mobile";
         canvas.className = "unity-mobile";
+
         canvas.style.width = window.innerWidth + "px";
         canvas.style.height = window.innerHeight + "px";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
         canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
@@ -242,25 +238,48 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  document.makeFullscreen('unity-container');
-                };
-
-              }).catch((message) => {
-                alert(message);
-              });
+        }).then((unityInstance) => {
+            document.querySelector("#unity-loading-bar").style.display = "none";
+            document.querySelector("#unity-fullscreen-button").onclick = () => {
+              document.makeFullscreen('unity-container');
             };
-
+        }).catch((message) => {
+            alert(message);
+        });
+      };
       document.body.appendChild(script);
 
-        function forceResize() {
+      /* -------- ROTATION CHECK -------- */
+      const rotateOverlay = document.getElementById("rotate-overlay");
+
+      function checkOrientation() {
+          if (window.innerHeight > window.innerWidth) {
+              // PORTRAIT
+              rotateOverlay.style.display = "flex";
+              canvas.style.display = "none";
+          } else {
+              // LANDSCAPE
+              rotateOverlay.style.display = "none";
+              canvas.style.display = "block";
+          }
+      }
+
+      checkOrientation();
+
+      window.addEventListener("resize", () => {
+          canvas.style.width = window.innerWidth + "px";
+          canvas.style.height = window.innerHeight + "px";
+          checkOrientation();
+      });
+
+      window.addEventListener("orientationchange", () => {
+          setTimeout(() => {
             canvas.style.width = window.innerWidth + "px";
             canvas.style.height = window.innerHeight + "px";
-        }
+            checkOrientation();
+          }, 200);
+      });
+    </script>
 
-        window.addEventListener("resize", forceResize);
-        window.addEventListener("orientationchange", forceResize);</script>
 </body>
 </html>

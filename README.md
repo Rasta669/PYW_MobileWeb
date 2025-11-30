@@ -72,14 +72,15 @@ Each color represents a unique virtue and ability — your survival depends on h
 
 ---
 
-## 💽 On-Chain Contracts (Base Sepolia)
+## 💽 On-Chain Contracts (Celo Sepolia)
 
 | Contract | Type | Address |
 |-----------|-------|----------|
-| 🎨 **[Color Contract](https://sepolia.basescan.org/address/0x66B138f2FE05b6b3d2e1f24bD923672D9A9E1843)** | NFT / Token Contract | `0x66B138f2FE05b6b3d2e1f24bD923672D9A9E1843` |
-| 👻 **[Ghost Color Contract](https://sepolia.basescan.org/address/0xa2805C1F58A82974A11D4d450269223205734675)** | NFT Contract | `0xa2805C1F58A82974A11D4d450269223205734675` |
-| 🩸 **[Health Contract](https://sepolia.basescan.org/address/0xfaaFde5b6DdD78E377A0532d6ECf85Bacb9FDb09)** | NFT Contract | `0xfaaFde5b6DdD78E377A0532d6ECf85Bacb9FDb09` |
-| 🏆 **[Leaderboard.sol](https://sepolia.basescan.org/address/0x4dB0143A17aD7C80693D39E15533A4E59C2eF935)** | Smart Contract | `0x4dB0143A17aD7C80693D39E15533A4E59C2eF935` |
+| 🎨 **[Color Contract](https://celo-sepolia.blockscout.com/token/0xd7437F4Ee5D25b383e09F518f66Ad51f10D1a72D)** | NFT / Token Contract | `0xd7437F4Ee5D25b383e09F518f66Ad51f10D1a72D` |
+| 👻 **[Ghost Color Contract](https://celo-sepolia.blockscout.com/address/0xec9296B2859a588817a86033EBb828f706FF0eB4)** | NFT Contract | `0xec9296B2859a588817a86033EBb828f706FF0eB4` |
+| 👻 **[Brown Color Contract](https://celo-sepolia.blockscout.com/address/0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126)** | NFT Contract | `0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126` |
+| 🩸 **[Health Contract](https://celo-sepolia.blockscout.com/address/0xBeC85861263144F01623B4B07Ffb4f1568a4A734)** | NFT Contract | `0xBeC85861263144F01623B4B07Ffb4f1568a4A734` |
+| 🏆 **[Leaderboard.sol](https://celo-sepolia.blockscout.com/address/0x6db48E5Dd3558A34a3fb11114e59a9b3E3F010f4)** | Smart Contract | `0x6db48E5Dd3558A34a3fb11114e59a9b3E3F010f4` |
 
 ---
 

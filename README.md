@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Base%20Network-blue?logo=ethereum&logoColor=white" alt="Base Network"/>
   </a>
   <a href="https://celo.org/">
-  <img src="https://celo.org/images/celo-logo.png" alt="Celo" width="40" />
+  <img src="https://cryptologos.cc/logos/celo-celo-logo.png?v=040" width="40" />
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"/>

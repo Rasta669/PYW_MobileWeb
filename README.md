@@ -11,10 +11,14 @@
   <a href="https://basescan.org/">
     <img src="https://img.shields.io/badge/Base%20Network-blue?logo=ethereum&logoColor=white" alt="Base Network"/>
   </a>
+  <a href="https://celo.org/">
+    <img src="https://img.shields.io/badge/Celo-35D07F?logo=celo&logoColor=white" alt="Celo"/>
+  </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"/>
   </a>
 </p>
+
 
 ---
 
@@ -32,6 +36,8 @@ Their attempt to access forbidden realms unleashed **Ng’aiyoni (The Fading)** 
 
 Now, the Oloibon must survive the fading realm using sacred colors to restore balance and reclaim their legacy.  
 Each color represents a unique virtue and ability — your survival depends on how you *paint your world*.
+
+You can play the game [here](rasta669.github.io/PYW_MobileWeb/) 
 
 ---
 
@@ -53,7 +59,7 @@ Each color represents a unique virtue and ability — your survival depends on h
 - 🔗 **On-Chain Progression:** Earn XP on-chain as you play. Convert XP into **Color**, the in-game currency.  
   Use Color to unlock abilities, restore vitality, or master advanced skills like **Ghost Color** or **Block Color**.  
 - 🪙 **Wallet Connection:** Compatible with both EVM wallets and social logins.  
-- 🌐 **Network:** Deployed on **Base Sepolia Testnet**.  
+- 🌐 **Network:** Deployed on **Celo Sepolia Testnet**.  
 - 💾 **Data:** Player progress, leaderboard, and market data stored on-chain.
 
 ---
@@ -78,7 +84,7 @@ Each color represents a unique virtue and ability — your survival depends on h
 |-----------|-------|----------|
 | 🎨 **[Color Contract](https://celo-sepolia.blockscout.com/token/0xd7437F4Ee5D25b383e09F518f66Ad51f10D1a72D)** | NFT / Token Contract | `0xd7437F4Ee5D25b383e09F518f66Ad51f10D1a72D` |
 | 👻 **[Ghost Color Contract](https://celo-sepolia.blockscout.com/address/0xec9296B2859a588817a86033EBb828f706FF0eB4)** | NFT Contract | `0xec9296B2859a588817a86033EBb828f706FF0eB4` |
-| 👻 **[Brown Color Contract](https://celo-sepolia.blockscout.com/address/0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126)** | NFT Contract | `0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126` |
+| 🟫 **[Brown Color Contract](https://celo-sepolia.blockscout.com/address/0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126)** | NFT Contract | `0xbf4F2c3FaC4d8E1E21Ce31A016453053Cf144126` |
 | 🩸 **[Health Contract](https://celo-sepolia.blockscout.com/address/0xBeC85861263144F01623B4B07Ffb4f1568a4A734)** | NFT Contract | `0xBeC85861263144F01623B4B07Ffb4f1568a4A734` |
 | 🏆 **[Leaderboard.sol](https://celo-sepolia.blockscout.com/address/0x6db48E5Dd3558A34a3fb11114e59a9b3E3F010f4)** | Smart Contract | `0x6db48E5Dd3558A34a3fb11114e59a9b3E3F010f4` |
 
@@ -95,11 +101,13 @@ cd PaintYourWorld
 ### 2️⃣ Open in Unity
 - Open the project using **Unity 6000.0.41f1 LTS**
 - Import **Thirdweb SDK** and **Reown SDK**
-- Configure your **Base Sepolia RPC** and wallet credentials
+- Define scripting object `THIRDWEB_REOWN`
+- Configure your **Celo Sepolia RPC** and wallet credentials
 
 ### 3️⃣ Run the Game
 - Press **Play** in the Unity Editor  
-- Or build for **WebGL** / **PC**
+- Or build for **WebGL** / **Mobile**
+- Or Play [here](rasta669.github.io/PYW_MobileWeb/)
 
 ---
 
@@ -111,6 +119,13 @@ cd PaintYourWorld
 | **Kevin Mwanga** | 3d Generalist/ Game Designer | [X: @krcryptonian](https://x.com/krcryptonian) · 📧 [kevinmwanga4@gmail.com](mailto:kevinmwanga4@gmail.com) |
 
 ---
+
+## 🌟 Future Plans
+
+- 🌐 Deploy to Mainnet: Launch on Celo Mainnet for real on-chain interaction.
+- 📱 Mobile Store Release: Build and optimize the game for iOS and Android to improve performance and loading, since WebGL is not fully supported on mobile browsers.
+- 🎯 Mission / Story Mode: Add structured missions and story-driven gameplay to increase player retention and engagement.
+- 🎨 Expanded Abilities & Colors: Introduce more color powers, puzzles, and challenges for deeper gameplay.
 
 
 <p align="center">🎨 Made with Unity, Blender, Solidity, and Imagination 💫</p>

@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Base%20Network-blue?logo=ethereum&logoColor=white" alt="Base Network"/>
   </a>
   <a href="https://celo.org/">
-    <img src="https://img.shields.io/badge/Celo-35D07F?logo=celo&logoColor=white" alt="Celo"/>
+  <img src="https://celo.org/images/celo-logo.png" alt="Celo" width="40" />
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"/>
@@ -101,7 +101,7 @@ cd PaintYourWorld
 ### 2️⃣ Open in Unity
 - Open the project using **Unity 6000.0.41f1 LTS**
 - Import **Thirdweb SDK** and **Reown SDK**
-- Define scripting object `THIRDWEB_REOWN`
+- Define scripting symbol `THIRDWEB_REOWN`
 - Configure your **Celo Sepolia RPC** and wallet credentials
 
 ### 3️⃣ Run the Game
@@ -126,6 +126,6 @@ cd PaintYourWorld
 - 📱 Mobile Store Release: Build and optimize the game for iOS and Android to improve performance and loading, since WebGL is not fully supported on mobile browsers.
 - 🎯 Mission / Story Mode: Add structured missions and story-driven gameplay to increase player retention and engagement.
 - 🎨 Expanded Abilities & Colors: Introduce more color powers, puzzles, and challenges for deeper gameplay.
-
+---
 
 <p align="center">🎨 Made with Unity, Blender, Solidity, and Imagination 💫</p>

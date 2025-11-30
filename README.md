@@ -73,7 +73,7 @@ You can play the game [here](rasta669.github.io/PYW_MobileWeb/)
 | **3D/Art** | Blender |
 | **Blockchain SDK** | Thirdweb / Reown SDK |
 | **Smart Contracts** | Solidity |
-| **Network** | Base |
+| **Network** | Celo |
 | **Backend** | Node.js |
 
 ---

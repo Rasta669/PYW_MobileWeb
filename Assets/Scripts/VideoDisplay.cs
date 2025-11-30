@@ -24,3 +24,45 @@ public class VideoDisplay : MonoBehaviour
     }
 }
 
+
+
+
+
+// Addressable version WORKS WELL WITH android, windows, iOS builds
+
+
+
+//using UnityEngine;
+//using UnityEngine.Video;
+//using UnityEngine.AddressableAssets;
+//using UnityEngine.ResourceManagement.AsyncOperations;
+
+//public class VideoDisplay : MonoBehaviour
+//{
+//    [SerializeField] string videoAddress; // Addressable key
+
+//    void Start()
+//    {
+//        PlayVideo();
+//    }
+
+//    public void PlayVideo()
+//    {
+//        VideoPlayer vplayer = GetComponent<VideoPlayer>();
+//        if (vplayer != null)
+//        {
+//            Addressables.LoadAssetAsync<VideoClip>(videoAddress).Completed += handle =>
+//            {
+//                if (handle.Status == AsyncOperationStatus.Succeeded)
+//                {
+//                    vplayer.clip = handle.Result;
+//                    vplayer.Play();
+//                }
+//                else
+//                {
+//                    Debug.LogError("Failed to load video: " + videoAddress);
+//                }
+//            };
+//        }
+//    }
+//}

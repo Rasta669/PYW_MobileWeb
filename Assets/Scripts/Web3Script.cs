@@ -1408,7 +1408,7 @@ public class WalletConnectManager : MonoBehaviour
 
         var walletOptions = new WalletOptions(
             provider: WalletProvider.ReownWallet,
-            chainId: 84532,
+            chainId: ActiveChainId,
             reownOptions: reownOptions
         );
 
@@ -1513,12 +1513,13 @@ public class WalletConnectManager : MonoBehaviour
 
     internal async Task SubmitScore(float score)
     {
-        //Debug.Log($"Submitting score of {score} to blockchain for address {walletAddress}");
+        Debug.Log($"Submitting score of {score} to blockchain for address {walletAddress}");
         var contract = await ThirdwebManager.Instance.GetContract(
             LeaderboardContractAddress,
-            84532
+            ActiveChainId
         );
         await contract.Write(wallet, "submitScore", 0, (int)score);
+        Debug.Log("Score Submitted");
     }
 
     
@@ -1548,7 +1549,7 @@ public class WalletConnectManager : MonoBehaviour
             uint topScore = await contract.Read<uint>("getScoreByPosition",position);
             readScore = topScore;
             scoreList.Add(readScore);
-            //Debug.Log($"{position +1 }th Score: {readScore}");
+            Debug.Log($"{position +1 }th Score: {readScore}");
             string PlayerName = await contract.Read<string>("getPlayerNameByPosition", position);
             readName = PlayerName;
             nameList.Add(readName);
@@ -1567,27 +1568,27 @@ public class WalletConnectManager : MonoBehaviour
 
     public async Task RegisterLeaderboardName(string name)
     {
-        //Debug.Log($"Registering {name} to blockchain for address {walletAddress}");
+        Debug.Log($"Registering {name} to blockchain for address {walletAddress}");
         var contract = await ThirdwebManager.Instance.GetContract(
             LeaderboardContractAddress,
-            84532
+            ActiveChainId
         );
         //Debug.Log("stage1");
         await contract.Write(wallet, "setPlayerName", 0, name);
-        //Debug.Log("Registered");
+        Debug.Log("Registered");
         await ReadName(0);
     }
 
     public async Task ReadName(uint position)
     {
-        //Debug.Log($"Reading name to blockchain for position {position}");
+        Debug.Log($"Reading name to blockchain for position {position}");
         var contract = await ThirdwebManager.Instance.GetContract(
             LeaderboardContractAddress,
-            84532
+            ActiveChainId
         );
         string gamename = await contract.Read<string>("getPlayerNameByPosition", position);
         Gamename = gamename;
-        //Debug.Log(Gamename);
+        Debug.Log(Gamename);
     }
 
     public async Task GetTotalScorers()
@@ -1595,10 +1596,10 @@ public class WalletConnectManager : MonoBehaviour
         //bug.Log($"Reading name to blockchain for position {walletAddress}");
         var contract = await ThirdwebManager.Instance.GetContract(
             LeaderboardContractAddress,
-            84532
+            ActiveChainId
         );
         scorers = await contract.Read<uint>("getTotalScores");
-        //Debug.Log(scorers);
+        Debug.Log(scorers);
     }
 
     public uint TotalScorers()

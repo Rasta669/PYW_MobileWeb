@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: be1c0a33d8ce0054095e2d9c70ff3426
+  m_SerializeEntries:
+  - m_GUID: 1af35fd57f6f01e4bb801fa7103ec14e
+    m_Address: Assets/Prefabs/Kiorij.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25208e59892af534380ec39494c7c03e
+    m_Address: Assets/Prefabs/0000_0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 470fdf913f969ed4985b47a9e99e87d5
+    m_Address: Assets/Prefabs/0001_0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c729309718aeaf44aa4140ad9de1561
+    m_Address: Assets/Prefabs/Enemy bird.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83c35492974602b488bead7129c31408
+    m_Address: Assets/Prefabs/lightning.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c7c706e68dea7146a6271e01c0c555e
+    m_Address: Assets/Prefabs/Ghost1 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a73722f43d72d8a4984b8c168d612789
+    m_Address: Assets/Prefabs/Ghost1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c833e0f6c52d0074cb8150aa4d87275f
+    m_Address: Assets/Prefabs/obstacles (1)_0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daba9e7ae1c9d7f45bb0642807ff34d7
+    m_Address: Assets/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 07a42a224e369764e9eafcd02bd0e302, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2a5d6605bc0648c40899ceaa1c816687, type: 2}
+    - {fileID: 11400000, guid: a85714e7806909f41808a347855986ba, type: 2}

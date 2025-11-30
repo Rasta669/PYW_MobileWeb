@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections;
-using System.Net.Http;
-using System;
-using UnityEngine.Events;
-using System.Threading.Tasks;
 using static WalletConnectManager;
-using System.Collections.Generic;
 //using Nethereum.HdWallet; // Added for UnityEvent handling
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -113,6 +115,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button character2Button;       // Assign in Inspector
     [SerializeField] private GameObject character1;         // Reference to Player 1 prefab
     [SerializeField] private GameObject character2;         // Reference to Player 2 prefab
+    [SerializeField] private AssetReferenceGameObject character1R;         // Reference to Player 1 prefab
+    [SerializeField] private AssetReferenceGameObject character2R;         // Reference to Player 2 prefab
 
     private bool hasSelectedCharacter = false;              // Ensures only first-time character selection
     private bool hasSeenInstructions = false;               // Ensures instructions shown only once
@@ -372,10 +376,10 @@ public class GameManager : MonoBehaviour
         }
 
         if (character1Button != null)
-            character1Button.onClick.AddListener(() => OnCharacterSelected(character1));
+            character1Button.onClick.AddListener(() => OnCharacterSelectedR(character1R));
 
         if (character2Button != null)
-            character2Button.onClick.AddListener(() => OnCharacterSelected(character2));
+            character2Button.onClick.AddListener(() => OnCharacterSelectedR(character2R));
 
         if (characterMenu1Button != null)
             characterMenu1Button.onClick.AddListener(() => OnCharacterMenuSelected(character1));
@@ -681,6 +685,57 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         // Instantiate the selected character prefab at initial position
         player = Instantiate(selectedPrefab, initialPlayerPosition, Quaternion.identity);
+
+        // Assign player to other scripts
+        RewardSpawner spawner = FindObjectOfType<RewardSpawner>();
+        if (spawner != null) spawner.SetPlayer(player);
+
+        ObstacleSpawner obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
+        if (obstacleSpawner != null) obstacleSpawner.SetPlayer(player);
+
+        FixedXObstacleSpawner2D fixedSpawner = FindObjectOfType<FixedXObstacleSpawner2D>();
+        if (fixedSpawner != null) fixedSpawner.SetPlayer(player.transform);
+
+        PaintManager PM = FindObjectOfType<PaintManager>();
+        if (PM != null) PM.SetPlayer(player);
+
+        hasSelectedCharacter = true;
+
+        // Hide character select canvas
+        if (characterSelectCanvas != null)
+            characterSelectCanvas.gameObject.SetActive(false);
+
+        // Continue to instructions
+        StartInstructions();
+    }
+
+    async void OnCharacterSelectedR(AssetReferenceGameObject selectedPrefab)
+    {
+        AudioManager.Instance.PlayClickSound();
+
+        if (selectedPrefab == null)
+        {
+            Debug.LogError("Selected character prefab is null!");
+            return;
+        }
+
+        // Store character index (same logic as before)
+        selectedCharacterIndex = selectedPrefab == character2R ? 2 : 1;
+        PlayerPrefs.SetInt("SelectedCharacterIndex", selectedCharacterIndex);
+        PlayerPrefs.Save();
+
+        // 🔥 Load Addressable prefab
+        AsyncOperationHandle<GameObject> handle = selectedPrefab.LoadAssetAsync<GameObject>();
+        await handle.Task; // wait for load to finish
+
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Failed to load character from Addressables!");
+            return;
+        }
+
+        // 🔥 Instantiate the loaded prefab
+        player = Instantiate(handle.Result, initialPlayerPosition, Quaternion.identity);
 
         // Assign player to other scripts
         RewardSpawner spawner = FindObjectOfType<RewardSpawner>();
